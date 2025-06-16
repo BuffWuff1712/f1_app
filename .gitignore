@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# Pytest
+.pytest_cache/
+
+# VSCode & IDE config
+.vscode/
+.idea/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Local data
+*.sqlite3
+*.db
+*.log
+*.csv
+*.tsv
+*.json
+chunks/
+last_scrape.json
+
+# Compiled files
+*.so
+*.dll
+*.dylib
+
+# LangChain/Astra local cache
+.cache/
+__langchain__/  # if used
+astradb_temp/
+
+# Streamlit temporary files
+.streamlit/
+
+# Chunks
+chunks/
+
+# Indexes
+f1_index/
