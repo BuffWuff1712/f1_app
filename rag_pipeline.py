@@ -15,7 +15,7 @@ from langchain.chains import RetrievalQA
 
 def get_config(key: str, default: str = None) -> str:
     return (
-        os.environ[key] or
+        os.environ.get(key) or
         st.secrets.get(key) or
         default
     )
