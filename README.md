@@ -16,6 +16,19 @@
 
 ---
 
+## 🌐 Live Demo
+
+You can try the production-ready version of the AskF1 chatbot instantly here:
+
+👉 **[https://askf1-by-buffwuff1712.streamlit.app/](https://askf1-by-buffwuff1712.streamlit.app/)**
+
+No setup required — just open the link in your browser and start chatting with the bot about anything Formula 1.
+
+If you would like to run the app on your device locally, please follow the instructions in the next section.
+
+
+---
+
 ## 📦 Setup Instructions
 
 ### 1. Clone the Repo
