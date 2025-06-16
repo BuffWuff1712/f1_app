@@ -21,7 +21,7 @@ def enrich_prompt(user_question: str):
     return f"(Today is {today}) {user_question}"
 
 # Prompt input template to display prompts
-prompt = enrich_prompt(st.chat_input('Ask your F1 question'))
+prompt = st.chat_input('Ask your F1 question')
 qa_chain = load_combined_qa_chain()
 
 
@@ -32,7 +32,7 @@ if prompt:
     # Add user prompt in state
     st.session_state.messages.append({'role': 'user', 'content': prompt})
     with st.spinner("Thinking..."):
-        result = qa_chain.invoke(prompt)
+        result = qa_chain.invoke(enrich_prompt(prompt))
         answer = result['result']
         sources = result['source_documents']
     
