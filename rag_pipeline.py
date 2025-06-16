@@ -8,15 +8,14 @@ load_dotenv()
 
 
 from langchain_astradb import AstraDBVectorStore
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain.retrievers import EnsembleRetriever
-from langchain_community.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 
 
 def get_config(key: str, default: str = None) -> str:
     return (
-        os.environ.get(key) or
+        os.environ[key] or
         st.secrets.get(key) or
         default
     )
@@ -25,12 +24,11 @@ ASTRA_DB_APPLICATION_TOKEN = get_config("ASTRA_DB_APPLICATION_TOKEN")
 ASTRA_DB_API_ENDPOINT = get_config("ASTRA_DB_API_ENDPOINT")
 ASTRA_DB_KEYSPACE = get_config("ASTRA_DB_KEYSPACE")
 USER_AGENT = get_config("USER_AGENT")
-ASTRA_DB_API_KEY_NAME = get_config("ASTRA_DB_API_KEY_NAME") or None
-OPENAI_API_KEY = get_config("OPENAI_API_KEY") or None
+OPENAI_API_KEY = get_config("OPENAI_API_KEY")
 
 
 def load_combined_qa_chain():
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 
     retriever_fia = AstraDBVectorStore(
         collection_name="fia_documents",
