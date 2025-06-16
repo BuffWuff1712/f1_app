@@ -38,6 +38,10 @@ dynamic_links = [
 other_sources = [
     "https://www.formula1.com/en/latest/all",
     "https://en.wikipedia.org/wiki/Formula_One",
+    "https://en.wikipedia.org/wiki/List_of_Formula_One_Grand_Prix_winners",
+    "https://en.wikipedia.org/wiki/List_of_Formula_One_World_Constructors%27_Champions",
+    "https://en.wikipedia.org/wiki/List_of_Formula_One_circuits",
+    "https://en.wikipedia.org/wiki/List_of_Formula_One_driver_records"
 ]
 
 f1_updated_data = static_links + dynamic_links + other_sources
@@ -49,7 +53,7 @@ def should_scrape():
         return True
     with open(SCRAPE_METADATA_FILE, "r") as f:
         last = datetime.fromisoformat(json.load(f)["last_scrape"])
-    return datetime.now() - last > timedelta(days=3)
+    return datetime.now() - last > timedelta(days=0)
 
 def update_scrape_timestamp():
     with open(SCRAPE_METADATA_FILE, "w") as f:
